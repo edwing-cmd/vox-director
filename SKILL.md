@@ -44,8 +44,12 @@ between "a real Vox collage" and "a moving PowerPoint".
 
 ## Prerequisites (check, don't skip)
 
-- `echo "${ATLASCLOUD_API_KEY:+set}"` — if empty, tell the user to set it (get one at
-  https://www.atlascloud.ai/console/api-keys) and stop.
+- **Pick a backend.** If the Higgsfield MCP tools are available in this session
+  (`generate_image_batch`, `generate_video_batch`, `jobs_wait`), use the Higgsfield backend:
+  set `"provider": "higgsfield"` in beats.json and **read `references/higgsfield.md`**
+  before running any stage. No Atlas key is needed (except optionally for music).
+- Otherwise (Atlas backend): `echo "${ATLASCLOUD_API_KEY:+set}"` — if empty, tell the user
+  to set it (get one at https://www.atlascloud.ai/console/api-keys) and stop.
 - `command -v ffmpeg ffprobe` — required for assembly (`brew install ffmpeg` on macOS).
 - `python3 -c "import PIL"` — Pillow, for captions/watermark overlays.
 
